@@ -65,12 +65,12 @@
             android:layout_height="48dp"
             android:layout_marginTop="25dp"
             android:layout_marginBottom="36dp"
-            android:background="@drawable/button"
+            android:background="@drawable/frame"
             android:fontFamily="@font/poppins_bold"
             android:paddingStart="64dp"
             android:paddingEnd="64dp"
             android:text="NEXT"
-            android:textColor="@color/text_primary"
+            android:textColor="@color/black"
             android:textSize="20sp" />
 
 

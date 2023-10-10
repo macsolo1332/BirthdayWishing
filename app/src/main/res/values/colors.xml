@@ -2,8 +2,10 @@
 <resources>
     <color name="backgroud">#010414</color>
     <color name="primary">#FFE600</color>
+    <color name="silver">#D3CCCC</color>
     <color name="frame">#5EF2EDED</color>
     <color name="text_primary">#2C2C2C</color>
     <color name="black">#FF000000</color>
+    <color name="redi">#A92323</color>
     <color name="white">#FFFFFFFF</color>
 </resources>
