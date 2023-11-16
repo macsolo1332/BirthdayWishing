@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblue"
+    tools:context=".EditReminderActivity">
+
+    <EditText
+        android:id="@+id/editTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Title"
+        android:layout_margin="16dp"
+        android:textSize="18sp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="8dp"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/editDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:layout_below="@id/editTitle"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="8dp"
+        android:textColor="#000000"/>
+
+    <EditText
+        android:id="@+id/editTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Time"
+        android:layout_below="@id/editDate"
+        android:layout_margin="16dp"
+        android:textSize="16sp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:padding="8dp"
+        android:textColor="#000000"/>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_below="@id/editTime"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"/>
+
+</RelativeLayout>
