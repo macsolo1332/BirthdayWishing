@@ -26,7 +26,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.single_reminder_file, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
         return new ViewHolder(view);
     }
 
@@ -37,14 +37,14 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
         holder.dateTextView.setText(model.getDate());
         holder.timeTextView.setText(model.getTime());
 
-        holder.moveToMainButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (listener != null) {
-                    listener.onMoveToMainClick(model);
-                }
-            }
-        });
+//        holder.moveToMainButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (listener != null) {
+//                    listener.onMoveToMainClick(model);
+//                }
+//            }
+//        });
 
         holder.forwardButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,7 +96,8 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
             editButton = itemView.findViewById(R.id.editButton);
             deleteButton = itemView.findViewById(R.id.deleteButton);
             forwardButton = itemView.findViewById(R.id.forwardButton); // Initialize forwardButton
-            moveToMainButton = itemView.findViewById(R.id.moveToMainButton); // Initialize moveToMainButton
+//            moveToMainButton = itemView.findViewById(R.id.moveToMainButton); // Initialize moveToMainButton
+
         }
     }
 }

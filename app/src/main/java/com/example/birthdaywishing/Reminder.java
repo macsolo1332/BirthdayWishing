@@ -147,7 +147,7 @@ public class Reminder extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        Intent intentBack = new Intent(getApplicationContext(), MainActivity.class);
+        Intent intentBack = new Intent(getApplicationContext(), MainActivity2.class);
         intentBack.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intentBack);
     }
