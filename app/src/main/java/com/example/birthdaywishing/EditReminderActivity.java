@@ -51,12 +51,18 @@ public class EditReminderActivity extends AppCompatActivity {
     }
 
     private void updateReminder(String oldTitle, String newTitle, String date, String time) {
-        String result = new dbManager(this).updateReminder(oldTitle, newTitle, date, time);
-        Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+        try {
+            String result = new dbManager(this).updateReminder(oldTitle, newTitle, date, time);
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(getApplicationContext(), "Error updating reminder: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
 
         // Return to the MainActivity
         Intent intent = new Intent(this, MainActivity.class);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }
+
 }

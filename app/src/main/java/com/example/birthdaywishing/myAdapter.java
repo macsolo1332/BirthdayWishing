@@ -55,14 +55,14 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
             }
         });
 
-        holder.editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (listener != null) {
-                    listener.onEditClick(model);
-                }
-            }
-        });
+//        holder.editButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                if (listener != null) {
+//                    listener.onEditClick(model);
+//                }
+//            }
+//        });
 
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +93,7 @@ public class myAdapter extends RecyclerView.Adapter<myAdapter.ViewHolder> {
             titleTextView = itemView.findViewById(R.id.titleTextView);
             dateTextView = itemView.findViewById(R.id.dateTextView);
             timeTextView = itemView.findViewById(R.id.timeTextView);
-            editButton = itemView.findViewById(R.id.editButton);
+            //editButton = itemView.findViewById(R.id.editButton);
             deleteButton = itemView.findViewById(R.id.deleteButton);
             forwardButton = itemView.findViewById(R.id.forwardButton); // Initialize forwardButton
 //            moveToMainButton = itemView.findViewById(R.id.moveToMainButton); // Initialize moveToMainButton
