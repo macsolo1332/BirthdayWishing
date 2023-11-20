@@ -8,6 +8,13 @@
     android:orientation="vertical"
     tools:context=".MainActivity" >
 
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/image1" />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="361dp"
         android:layout_height="594dp"
