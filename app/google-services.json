@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "850797153553",
+    "project_id": "breminders-4c0ea",
+    "storage_bucket": "breminders-4c0ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850797153553:android:7699efcc314d025e7f90b0",
+        "android_client_info": {
+          "package_name": "com.example.birthdaywishing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYVd2P0exOpQ9okNcZ8111IRrwgpGS1sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850797153553:android:f917b59576068ece7f90b0",
+        "android_client_info": {
+          "package_name": "com.example.breminder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYVd2P0exOpQ9okNcZ8111IRrwgpGS1sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:850797153553:android:ef5f8c646640febd7f90b0",
+        "android_client_info": {
+          "package_name": "com.example.breminders"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYVd2P0exOpQ9okNcZ8111IRrwgpGS1sA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
