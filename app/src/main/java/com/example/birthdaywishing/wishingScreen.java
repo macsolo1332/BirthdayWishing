@@ -11,6 +11,8 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -38,33 +40,52 @@ public class wishingScreen extends AppCompatActivity {
         binding.name.setText(name);
         binding.content.setText(content);
 
+        binding.saveToGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bitmap image = getBitmapFormView(binding.finalimage);
+                saveImageToGallery(image);
+            }
+        });
+
         binding.share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Bitmap image = getBitmapFormView(binding.finalimage);
 
                 ShareImageAndText(image);
+
             }
         });
+    }
+    private void saveImageToGallery(Bitmap image) {
+        String savedImageURL = MediaStore.Images.Media.insertImage(
+                getContentResolver(),
+                image,
+                "BirthdayImage",
+                "Birthday wish image"
+        );
+
+        if (savedImageURL != null) {
+            Toast.makeText(this, "Image saved to Gallery", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show();
+        }
     }
 
     private void ShareImageAndText(Bitmap image) {
         Uri uri = getImageToShare(image);
-        Intent intent = new Intent(Intent.ACTION_SEND);
 
-        //uri of the image
-        intent.putExtra(Intent.EXTRA_STREAM,uri);
+        Intent shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setType("image/png"); // Change this to "image/jpeg" if you save the image as JPEG
 
-        //add the message
-        intent.putExtra(Intent.EXTRA_SUBJECT,"Happy Birthday and many many happy returns of the day!!");
+        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        //setting the type of image
-        intent.setType("image/png");
+        startActivity(Intent.createChooser(shareIntent, "Share Image Via:"));
+    }
 
-        //calling start activity to share
-        startActivity(Intent.createChooser(intent,"Share Image Via:"));
 
-        }
 
     private Uri getImageToShare(Bitmap image) {
         File imageFolder =new File(getCacheDir(),"images");
