@@ -14,17 +14,28 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.birthdaywishing.databinding.ActivityWishingScreenBinding;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class wishingScreen extends AppCompatActivity {
 
     // View Binding
     ActivityWishingScreenBinding binding;
+    String name;
+    String content;
+    int[] imagearray;
+    int position;
+    ImageView imageView;
+    TextView wishname,wishcontent;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +45,16 @@ public class wishingScreen extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        String name = intent.getStringExtra("Name");
-        String content = intent.getStringExtra("Content");
+        name = intent.getStringExtra("name");
+        content = intent.getStringExtra("content");
+        position = intent.getIntExtra("position", 0); // Retrieve image resource ID
 
-        binding.name.setText(name);
-        binding.content.setText(content);
+        imageView = findViewById(R.id.imageView);
+        imageView.setBackgroundResource(position);
+        wishname=findViewById(R.id.name);
+        wishcontent=findViewById(R.id.content);
+        wishname.setText(name);
+        wishcontent.setText(content);
 
         binding.saveToGallery.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,16 +89,31 @@ public class wishingScreen extends AppCompatActivity {
         }
     }
 
+
     private void ShareImageAndText(Bitmap image) {
-        Uri uri = getImageToShare(image);
+        // Save the image to the gallery
+        String savedImageURL = MediaStore.Images.Media.insertImage(
+                getContentResolver(),
+                image,
+                "BirthdayImage",
+                "Birthday wish image"
+        );
 
-        Intent shareIntent = new Intent(Intent.ACTION_SEND);
-        shareIntent.setType("image/png"); // Change this to "image/jpeg" if you save the image as JPEG
+        if (savedImageURL != null) {
+            // Image saved successfully, now create a share Intent
+            Uri imageUri = Uri.parse(savedImageURL);
 
-        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
-        shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            Intent shareIntent = new Intent(Intent.ACTION_SEND);
+            shareIntent.setType("image/*");
+            shareIntent.putExtra(Intent.EXTRA_STREAM, imageUri);
+            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
 
-        startActivity(Intent.createChooser(shareIntent, "Share Image Via:"));
+            // Start the share action
+            startActivity(Intent.createChooser(shareIntent, "Share Image Via:"));
+        } else {
+            // Failed to save the image
+            Toast.makeText(this, "Failed to save image", Toast.LENGTH_SHORT).show();
+        }
     }
 
 

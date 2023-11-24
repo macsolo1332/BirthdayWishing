@@ -26,9 +26,9 @@ public class MainActivity extends AppCompatActivity {
                 String content = binding.contentInput.getText().toString();
 
                 if (!name.isEmpty()) {
-                    Intent intent = new Intent(MainActivity.this, wishingScreen.class);
-                    intent.putExtra("Name", name);
-                    intent.putExtra("Content", content); // Pass both Name and Content here
+                    Intent intent = new Intent(MainActivity.this, BgViewActivity.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("content", content);
                     startActivity(intent);
                 } else {
                     Toast.makeText(MainActivity.this, "Please enter the name", Toast.LENGTH_SHORT).show();
